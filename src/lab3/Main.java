@@ -92,7 +92,7 @@ class Dataset {
         ArrayList<Game> resutados = new ArrayList<Game>();
 
         for (Game g : data) {
-            if (g.getPrice() == Quality) {
+            if (g.getQuality() == Quality) {
                 resutados.add(g);
             }
         }
