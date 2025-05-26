@@ -103,16 +103,17 @@ class Dataset {
         // ordena en base a uno de esos y un atributo "bubbleSort”, “insertionSort”, “selectionSort”, “mergeSort”, “quickSort”
         switch (algoritmo) {
             case "bubbleSort":
-                new buublesort().bubbleSort(data, atributo);
+                new bubblesort().sort(data, atributo);
+
                 break;
             case "insertionSort":
-                new insertionsort().insertionsort(data, atributo);
+                new insertionsort().sort(data, atributo);
                 break;
             case "selectionSort":
-                new selectionsort().selectionsort(data, atributo);
+                new selectionsort().sort(data, atributo);
                 break;
             case "mergeSort":
-                new merge_sort().mergesort();
+                new merge_sort().sort(data, atributo);
                 break;
             case "quickSort":
                 new quicksort().quicksort();

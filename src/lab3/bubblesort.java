@@ -2,9 +2,9 @@ package lab3;
 
 import java.util.ArrayList;
 
-public class buublesort {
+public class bubblesort {
 
-    public void bubbleSort(ArrayList<Game> data, String attribute) {
+    public void sort(ArrayList<Game> data, String attribute) {
         int n = data.size();
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
