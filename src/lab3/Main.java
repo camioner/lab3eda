@@ -2,7 +2,7 @@ package lab3;
 
 import java.util.ArrayList;
 
-public class Benchmark {
+public class Main {
 
     public static void main(String[] args) {
         int[] tamaños = {100, 10000, 1000000};
