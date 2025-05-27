@@ -30,6 +30,9 @@ class Game {
     public int getQuality() {
         return calidad;
     }
+    public String toCSV() {
+        return this.nombre + "," + this.categoria + "," + this.precio + "," + this.calidad;
+    }
 }
 
 class Dataset {
