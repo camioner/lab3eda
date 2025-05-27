@@ -5,13 +5,13 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        int[] tamaños = {100, 10000, 1000000};
+        int[] tamanos = {100, 10000, 1000000};
         String[] algoritmos = {"bubbleSort", "insertionSort", "selectionSort", "mergeSort", "quickSort"};
 
-        for (int tamaño : tamaños) {
-            System.out.println("== Tamaño: " + tamaño + " ==");
+        for (int tamano : tamanos) {
+            System.out.println("== Tamaño: " + tamano + " ==");
 
-            ArrayList<Game> juegosOriginal = GenerateData.loadFromFile("data/games_" + tamaño + ".csv");
+            ArrayList<Game> juegosOriginal = GenerateData.loadFromFile("data/games_" + tamano + ".csv");
 
             for (String algoritmo : algoritmos) {
                 // Copiar juegos (evita ordenar los mismos)
