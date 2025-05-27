@@ -41,48 +41,52 @@ class Dataset {
         this.data = games;
     }
 
-    public ArrayList<Game> getGamesByPrice(int price) { //retorna los juegos con el precio
-        ArrayList<Game> resutados = new ArrayList<Game>();
-
-        for (Game g : data) {
-            if (g.getPrice() == price) {
-                resutados.add(g);
+    public ArrayList<Game> getGamesByPrice(int price) {
+        if (!"price".equals(sortedByAttribute)) {
+            ArrayList<Game> result = new ArrayList<>();
+            for (Game g : data) {
+                if (g.getPrice() == price) result.add(g);
             }
+            return result;
         }
-        return resutados;
+
+        return new BinarySearch().search(data, "price", "exact", Integer.toString(price), null);
     }
 
-    public ArrayList<Game> getGamesByPriceRange(int lo, int hi) { // retorna los juegos dentro del rango de precio
-        ArrayList<Game> resutados = new ArrayList<Game>();
-
-        for (Game g : data) {
-            if (g.getPrice() >= lo && g.getPrice() <= hi) {
-                resutados.add(g);
+    public ArrayList<Game> getGamesByPriceRange(int lo, int hi) {
+        if (!"price".equals(sortedByAttribute)) {
+            ArrayList<Game> result = new ArrayList<>();
+            for (Game g : data) {
+                if (g.getPrice() >= lo && g.getPrice() <= hi) result.add(g);
             }
+            return result;
         }
-        return resutados;
+
+        return new BinarySearch().search(data, "price", "range", Integer.toString(lo), Integer.toString(hi));
     }
 
-    public ArrayList<Game> getGamesByCategory(String categoria) { // retorna todos los juegos con la categoria dada
-        ArrayList<Game> resutados = new ArrayList<Game>();
-
-        for (Game g : data) {
-            if (g.getCategory() == categoria) {
-                resutados.add(g);
+    public ArrayList<Game> getGamesByQuality(int quality) {
+        if (!"quality".equals(sortedByAttribute)) {
+            ArrayList<Game> result = new ArrayList<>();
+            for (Game g : data) {
+                if (g.getQuality() == quality) result.add(g);
             }
+            return result;
         }
-        return resutados;
+
+        return new BinarySearch().search(data, "quality", "exact", Integer.toString(quality), null);
     }
 
-    public ArrayList<Game> getGetGamesByQuality(int Quality) { // retorna los juegos con la calidad dada
-        ArrayList<Game> resutados = new ArrayList<Game>();
-
-        for (Game g : data) {
-            if (g.getQuality() == Quality) {
-                resutados.add(g);
+    public ArrayList<Game> getGamesByCategory(String categoria) {
+        if (!"category".equals(sortedByAttribute)) {
+            ArrayList<Game> result = new ArrayList<>();
+            for (Game g : data) {
+                if (g.getCategory().equals(categoria)) result.add(g);
             }
+            return result;
         }
-        return resutados;
+
+        return new BinarySearch().search(data, "category", "exact", categoria, null);
     }
 
     public ArrayList<Game> SortbyAlgorithm(String algoritmo, String atributo) {
