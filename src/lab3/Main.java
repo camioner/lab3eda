@@ -1,20 +1,6 @@
 package lab3;
-
 import java.util.ArrayList;
 
-//class busqueda {
-//    //aqui hacer binarisearch para los metodos de despues
-//    ArrayList<Game> buscado;
-//
-//    public ArrayList<Game> resultadobusqueda(ArrayList<Game> lista, string ) {
-//        //recorre la lista previamente ordenada en base al atributo q estamos buscando
-//        for (Game g : lista) {
-//            if
-//        }
-//        // revisare lista y los resultados seran agregados a buscado
-//        return buscado;
-//    }
-//}
 
 class Game {
     String nombre;
@@ -116,7 +102,7 @@ class Dataset {
                 new merge_sort().sort(data, atributo);
                 break;
             case "quickSort":
-                new quicksort().quicksort();
+                new quicksort().sort(data, atributo);
                 break;
             default:
                 System.out.println("No se ha seleccionado un algoritmo valido");
