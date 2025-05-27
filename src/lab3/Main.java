@@ -2,7 +2,7 @@ package lab3;
 
 import java.util.ArrayList;
 
-public class Main {
+public class main {
 
     public static void main(String[] args) {
         int[] tamanos = {100, 10000, 1000000};
