@@ -1,6 +1,4 @@
 package lab3;
-import java.util.ArrayList;
-
 
 class Game {
     String nombre;
