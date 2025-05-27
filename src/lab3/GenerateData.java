@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-class GenerateDataa {
+class GenerateData {
     static Random random = new Random();
     static String[] nombres = {"Galaxy", "Legend", "Warrior", "Empire", "Dragon", "Last"};
     static String[] categorias = {"Accion", "Aventura", "RPG", "Estrategia", "Simulacion"};

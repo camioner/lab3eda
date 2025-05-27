@@ -59,24 +59,33 @@ class Dataset {
         return new BinarySearch().search(data, "category", "exact", categoria, null);
     }
 
-    public ArrayList<Game> SortbyAlgorithm(String algoritmo, String atributo) {
+    public ArrayList<Game> sortbyAlgorithm(String algoritmo, String atributo) {
         // ordena en base a uno de esos y un atributo "bubbleSort”, “insertionSort”, “selectionSort”, “mergeSort”, “quickSort”
         switch (algoritmo) {
             case "bubbleSort":
                 new bubblesort().sort(data, atributo);
+                this.sortedByAttribute = atributo;
 
                 break;
             case "insertionSort":
                 new insertionsort().sort(data, atributo);
+                this.sortedByAttribute = atributo;
+
                 break;
             case "selectionSort":
                 new selectionsort().sort(data, atributo);
+                this.sortedByAttribute = atributo;
+
                 break;
             case "mergeSort":
                 new merge_sort().sort(data, atributo);
+                this.sortedByAttribute = atributo;
+
                 break;
             case "quickSort":
                 new quicksort().sort(data, atributo);
+                this.sortedByAttribute = atributo;
+
                 break;
             default:
                 System.out.println("No se ha seleccionado un algoritmo valido");
