@@ -5,35 +5,36 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        int[] tamanos = {100, 10000, 1000000};
+        int[] tamaños = {100, 10000, 1000000};
         String[] algoritmos = {"bubbleSort", "insertionSort", "selectionSort", "mergeSort", "quickSort"};
 
-        for (int tamano : tamanos) {
-            System.out.println("== Tamaño: " + tamano + " ==");
+        for (int tamaño : tamaños) {
+            System.out.println("== Tamaño del dataset: " + tamaño + " ==");
 
-            ArrayList<Game> juegosOriginal = GenerateData.loadFromFile("data/games_" + tamano + ".csv");
+            // Cargar datos originales desde archivo
+            ArrayList<Game> juegosOriginal = GenerateData.loadFromFile("data/games_" + tamaño + ".csv");
 
             for (String algoritmo : algoritmos) {
-                // Copiar juegos (evita ordenar los mismos)
+                // Copiar los datos para no alterar los originales
                 ArrayList<Game> copia = new ArrayList<>();
                 for (Game g : juegosOriginal) copia.add(g);
 
                 Dataset dataset = new Dataset(copia);
 
-                long inicioOrden = System.nanoTime();
+                // Medir tiempo de ordenamiento
+                long startSort = System.nanoTime();
                 dataset.sortbyAlgorithm(algoritmo, "price");
-                long finOrden = System.nanoTime();
+                long endSort = System.nanoTime();
+                long tiempoOrden = (endSort - startSort) / 1_000_000;
 
-                long tiempoOrden = (finOrden - inicioOrden) / 1_000_000;
-
-                // Buscar un precio aleatorio dentro del rango
+                // Escoger un valor de precio que sabemos que existe
                 int precioObjetivo = copia.get(copia.size() / 2).getPrice();
 
-                long inicioBusqueda = System.nanoTime();
+                // Medir tiempo de búsqueda binaria
+                long startSearch = System.nanoTime();
                 ArrayList<Game> encontrados = dataset.getGamesByPrice(precioObjetivo);
-                long finBusqueda = System.nanoTime();
-
-                long tiempoBusqueda = (finBusqueda - inicioBusqueda) / 1_000_000;
+                long endSearch = System.nanoTime();
+                long tiempoBusqueda = (endSearch - startSearch) / 1_000_000;
 
                 System.out.printf("Algoritmo: %-12s | Ordenar: %5d ms | Buscar: %5d ms | Resultados: %d\n",
                         algoritmo, tiempoOrden, tiempoBusqueda, encontrados.size());
