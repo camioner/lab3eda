@@ -6,7 +6,7 @@ public class countingsort {
 
     public void sort(ArrayList<Game> data, String attribute) {
         if (!attribute.equals("quality")) {
-            System.out.println("❌ Counting Sort solo está implementado para 'quality'.");
+            System.out.println(" Counting Sort solo está implementado para 'quality'.");
             return;
         }
 
