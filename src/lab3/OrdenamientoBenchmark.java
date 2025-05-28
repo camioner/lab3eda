@@ -8,7 +8,7 @@ public class OrdenamientoBenchmark {
 
     static String[] algoritmos = {
             "bubbleSort", "insertionSort", "selectionSort",
-            "mergeSort", "quickSort", "collectionsSort"
+            "mergeSort", "quickSort", "collectionsSort","countingSort"
     };
     static int[] tamaños = {100, 10000, 1000000};
     static String[] atributos = {"price", "quality", "category"};
@@ -20,7 +20,7 @@ public class OrdenamientoBenchmark {
 
             for (String algoritmo : algoritmos) {
                 for (int tamaño : tamaños) {
-
+                    if (algoritmo.equals("countingSort") && !atributo.equals("quality")) continue;
                     // Saltar los algoritmos O(n^2) si el tamaño es 1 millón
                     if (tamaño == 1000000 &&
                             (algoritmo.equals("bubbleSort") ||
@@ -42,6 +42,7 @@ public class OrdenamientoBenchmark {
                         if (algoritmo.equals("collectionsSort")) {
                             Comparator<Game> comparador = getComparator(atributo);
                             Collections.sort(copia, comparador);
+                            dataset.sortedByAttribute = atributo;
                         } else {
                             dataset.sortbyAlgorithm(algoritmo, atributo);
                         }
