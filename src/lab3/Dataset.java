@@ -87,6 +87,12 @@ class Dataset {
                 this.sortedByAttribute = atributo;
 
                 break;
+
+            case "countingSort":
+                new countingsort().sort(data, atributo);
+                break;
+
+
             default:
                 System.out.println("No se ha seleccionado un algoritmo valido");
         }
